@@ -2,7 +2,6 @@ require 'jwt'
 require 'OpenSSL'
 require 'rest-client'
 require 'json'
-require 'faraday'
 
 puts "============================ Params ================================="
 puts "Integration Key -> #{ARGV[0]}"

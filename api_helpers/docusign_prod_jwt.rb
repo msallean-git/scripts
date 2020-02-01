@@ -1,5 +1,7 @@
 require 'jwt'
 require 'OpenSSL'
+require 'rest-client'
+require 'json'
 
 puts "============================ Params ================================="
 puts "Integration Key -> #{ARGV[0]}"
@@ -23,7 +25,14 @@ puts token
 decoded_token = JWT.decode token, rsa_public, true, { algorithm: 'RS256' }
 
 puts decoded_token
-#response =  RestClient.post('https://account-d.docusign.com/oauth/token?', headers: {grant_type: 'urn:ietf:params:oauth:grant-type:jwt-bearer', assertion: token})
-#response = RestClient.post('https://account-d.docusign.com/oauth/token', {grant_type: 'urn:ietf:params:oauth:grant-type:jwt-bearer', assertion: token})
-#response = RestClient::Request.execute(method: :post, url: 'https://account-d.docusign.com/oauth/token', headers: {grant_type: 'urn:ietf:params:oauth:grant-type:jwt-bearer', assertion: token})
-#puts response.body
+uri_str = "https://account.docusign.com/oauth/token?grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer&assertion="
+uri_str = uri_str.concat(token)
+RestClient.post(uri_str, {accept: :json}){|response, request, result, &block|
+	case response.code
+	when 200
+		puts "200: Valid Response"
+		puts response
+	else
+		repose.return!(&block)
+	end
+}
