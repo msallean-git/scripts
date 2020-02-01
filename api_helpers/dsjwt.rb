@@ -2,9 +2,9 @@ require 'jwt'
 require 'OpenSSL'
 
 puts "============================ Params ================================="
-puts "Integration key " ARVG[0]
-puts "User ID " ARGV[1]
-puts "Private Key " ARGV[2]
+puts "Integration key #{ARVG[0]}"
+puts "User ID  #{ARGV[1]}"
+puts "Private Key #{ARGV[2]}"
 puts "====================================================================="
 
 rsa_private = OpenSSL::PKey::RSA.new(ARGV[2])
