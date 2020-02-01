@@ -4,10 +4,13 @@ require 'OpenSSL'
 puts "============================ Params ================================="
 puts "Integration key #{ARGV[0]}"
 puts "User ID  #{ARGV[1]}"
-puts "Private Key #{ARGV[2]}"
+for i in 2 ... ARGV.length
+   private_key = private_key.concat(ARGV[i])
+end
+puts "Private Key #{private_key}"
 puts "====================================================================="
 
-rsa_private = OpenSSL::PKey::RSA.new(ARGV[2])
+rsa_private = OpenSSL::PKey::RSA.new(private_key)
 rsa_public = rsa_private.public_key
 payload = {iss: ARGV[0], sub: ARGV[1], iat: 1, exp: 2147483647, aud: "account-d.docusign.com", scope: "signature impersonation"}
 token = JWT.encode payload, rsa_private, 'RS256'
