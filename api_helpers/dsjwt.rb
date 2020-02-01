@@ -4,8 +4,9 @@ require 'OpenSSL'
 puts "============================ Params ================================="
 puts "Integration key #{ARGV[0]}"
 puts "User ID  #{ARGV[1]}"
+private_key = ""
 for i in 2 ... ARGV.length
-   private_key = private_key.concat(ARGV[i].to_str)
+   private_key = private_key.concat(ARGV[i])
 end
 puts "Private Key #{private_key}"
 puts "====================================================================="
