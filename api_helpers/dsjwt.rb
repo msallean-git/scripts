@@ -6,7 +6,7 @@ puts "Integration key #{ARGV[0]}"
 puts "User ID  #{ARGV[1]}"
 private_key = ""
 for i in 2 ... ARGV.length
-   private_key = private_key.concat(ARGV[i])
+   private_key = private_key.concat(ARGV[i]).concat("\n")
 end
 puts "Private Key #{private_key}"
 puts "====================================================================="
