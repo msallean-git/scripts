@@ -5,9 +5,11 @@ puts "============================ Params ================================="
 puts "Integration key #{ARGV[0]}"
 puts "User ID  #{ARGV[1]}"
 private_key = ""
-for i in 2 ... ARGV.length
+for i in 6 ... (ARGV.length - 5)
    private_key = private_key.concat(ARGV[i]).concat("\n")
 end
+private_key = private_key.prepend("-----BEGIN RSA PRIVATE KEY-----\n")
+private_key = private_key.concat("-----END RSA PRIVATE KEY-----")
 puts "Private Key #{private_key}"
 puts "====================================================================="
 
