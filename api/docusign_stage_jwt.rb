@@ -12,12 +12,13 @@ for i in 6 ... (ARGV.length - 4)
 end
 private_key = private_key.prepend("-----BEGIN RSA PRIVATE KEY-----\n")
 private_key = private_key.concat("-----END RSA PRIVATE KEY-----")
+#private_key = ARGV[2]
 puts "Private Key -> #{private_key}"
 puts "====================================================================="
 
 rsa_private = OpenSSL::PKey::RSA.new(private_key)
 rsa_public = rsa_private.public_key
-payload = {iss: ARGV[0], sub: ARGV[1], iat: 1, exp: 2147483647, aud: "account.docusign.com", scope: "signature impersonation"}
+payload = {iss: ARGV[0], sub: ARGV[1], iat: 1, exp: 2147483647, aud: "account-d.docusign.com", scope: "signature impersonation"}
 token = JWT.encode payload, rsa_private, 'RS256'
 
 puts token
@@ -25,7 +26,7 @@ puts token
 decoded_token = JWT.decode token, rsa_public, true, { algorithm: 'RS256' }
 
 puts decoded_token
-uri_str = "https://account.docusign.com/oauth/token?grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer&assertion="
+uri_str = "https://account-d.docusign.com/oauth/token?grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer&assertion="
 uri_str = uri_str.concat(token)
 RestClient.post(uri_str, {accept: :json}){|response, request, result, &block|
 	case response.code
@@ -33,6 +34,7 @@ RestClient.post(uri_str, {accept: :json}){|response, request, result, &block|
 		puts "200: Valid Response"
 		puts response
 	else
-		reponse.return!(&block)
+		repose.return!(&block)
 	end
 }
+
