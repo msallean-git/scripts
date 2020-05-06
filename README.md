@@ -2,7 +2,7 @@
 
 This is the repository where I am storing data scripts that may be usefull for automating work tasks. It has been configured to allow other members to be able to create their own branches and run their own scripts. Certianly in the early stages but hopefully there will be more usefull scripts soon.
 
-In order to run data scripts please contact me (michael.sallean@onit.com) and I will give you access to the script run_local.sh that will allow you to clone the repo locally and run the scripts on your machine. 
+In order to run data scripts please run the run_local.sh and will automatically clone the repository onto your local machine and execute the script with parameters.
 
 To run a Data Script from the terminal navigate to the correct directory and run run_local.sh by typing ./run_local.sh with the correct parameters. The script params formatted as follows:
 
