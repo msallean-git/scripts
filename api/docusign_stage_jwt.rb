@@ -34,7 +34,7 @@ RestClient.post(uri_str, {accept: :json}){|response, request, result, &block|
 		puts "200: Valid Response"
 		puts response
 	else
-		repose.return!(&block)
+		response.return!(&block)
 	end
 }
 
