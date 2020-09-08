@@ -6,7 +6,7 @@ require 'csv'
 
 csv = CSV.read("#{ARGV[0]}")
 aid = csv[0].last
-jwt = csv[5].last
+jwt = csv[2].last
 
 puts "============================ Params ================================="
 puts "API Key -> #{aid}"
