@@ -2,6 +2,7 @@ require 'jwt'
 require 'OpenSSL'
 require 'rest-client'
 require 'json'
+require 'csv'
 
 csv = CSV.read("#{ARGV[0]}")
 aid = csv[0].last
