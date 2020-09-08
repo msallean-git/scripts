@@ -32,6 +32,7 @@ decoded_token = JWT.decode token, rsa_public, true, { algorithm: 'RS256' }
 puts decoded_token
 uri_str = "https://account-d.docusign.com/oauth/token?grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer&assertion="
 uri_str = uri_str.concat(token)
+puts uri_str
 RestClient.post(uri_str, {accept: :json}){|response, request, result, &block|
 	case response.code
 	when 200
