@@ -22,4 +22,5 @@ RestClient.post(uri_str){|response, request, result, &block|
 		puts json_resp['refresh_token']
 	else
 		response.return!(&block)
+	end
 }
