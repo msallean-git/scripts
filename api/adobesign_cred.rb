@@ -14,7 +14,7 @@ access_token = ""
 refresh_token = ""
 uri_str = "https://secure.#{ARGV[0]}.adobesign.com/oauth/v2/token"
 payload_str = ""
-RestClient.execute(:method => :post, :url => uri_str, :payload => '{“grant_type":"authorization_code","code":"CBNCKBAAHBCAABAAASHJlb2THiBylNom-E7qsvN5qZ9h8g7P","client_id":"CBJCHBCAABAA7STPKahkmRhOX5Vz28EZPCR-RCjC2GDA","client_secret":"y2XSoK0wWqCYYX5K6EAqvwaVgRPmBOfp","redirect_uri":"https://www.onit.com”}'){|response, request, result, &block|
+RestClient.Request.execute(:method => :post, :url => uri_str, :payload => '{“grant_type":"authorization_code","code":"CBNCKBAAHBCAABAAASHJlb2THiBylNom-E7qsvN5qZ9h8g7P","client_id":"CBJCHBCAABAA7STPKahkmRhOX5Vz28EZPCR-RCjC2GDA","client_secret":"y2XSoK0wWqCYYX5K6EAqvwaVgRPmBOfp","redirect_uri":"https://www.onit.com”}'){|response, request, result, &block|
 	case response.code
 	when 200
 		puts "200: Valid Response"
