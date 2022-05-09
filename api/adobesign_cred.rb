@@ -19,8 +19,8 @@ RestClient.post(uri_str, {:grant_type => "authorization_code",:code => "#{ARGV[3
 	when 200
 		puts "200: Valid Response"
 		json_resp = JSON.parse(response)
-		puts json_resp['access_token']
-		puts json_resp['refresh_token']
+		puts "access_token -> #{json_resp['access_token']}"
+		puts "refresh_token -> #{json_resp['refresh_token']}"
 	else
 		puts response 
 		response.return!(&block)
