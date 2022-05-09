@@ -13,7 +13,7 @@ puts "====================================================================="
 access_token = ""
 refresh_token = ""
 uri_str = "https://secure.#{ARGV[0]}.adobesign.com/oauth/v2/token"
-RestClient.post(uri_str, {grant_type: :authorization_code, :code => "#{ARGV[3]}", :client_id => "#{ARGV[1]}", :client_secret => "#{ARGV[2]}", :redirect_uri => "https://www.onit.com" }){|response, request, result, &block|
+RestClient.post(uri_str, {grant_type: :authorization_code, :code => "#{ARGV[3]}", :client_id => "#{ARGV[1]}", :client_secret => "#{ARGV[2]}", :redirect_uri => "https://www.onit.com"){|response, request, result, &block|
 	case response.code
 	when 200
 		puts "200: Valid Response"
@@ -22,3 +22,4 @@ RestClient.post(uri_str, {grant_type: :authorization_code, :code => "#{ARGV[3]}"
 		puts json_resp['refresh_token']
 	else
 		response.return!(&block)
+}
