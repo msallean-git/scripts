@@ -22,5 +22,3 @@ RestClient.post(uri_str, {grant_type: :authorization_code, :code => "#{ARGV[3]}"
 		puts json_resp['refresh_token']
 	else
 		response.return!(&block)
-	
-}
