@@ -13,7 +13,7 @@ puts "====================================================================="
 access_token = ""
 refresh_token = ""
 uri_str = "https://secure.#{ARGV[0]}.adobesign.com/oauth/v2/token"
-RestClient.post(uri_str){|response, request, result, &block|
+RestClient.post(uri_str, {accept: :json}){|response, request, result, &block|
 	case response.code
 	when 200
 		puts "200: Valid Response"
