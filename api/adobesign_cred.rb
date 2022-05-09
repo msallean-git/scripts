@@ -22,6 +22,7 @@ RestClient.post(uri_str, {"grant_type" => "authorization_code","code" => "#{ARGV
 		puts json_resp['access_token']
 		puts json_resp['refresh_token']
 	else
+		puts response
 		response.return!(&block)
 	end
 }
