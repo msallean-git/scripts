@@ -127,3 +127,29 @@ Params:
 	code - This is the consent code from the URI after the user grants consent.
 Ex.
 	$ ./run_local.sh adobesign api adobesign_cred.rb na3 CBJCHBCAABAA7STPKahkmRhOX5Vz28EZPCR-RCjC2GDA B5t5HFdWiy7v8M3znvYjNHn6q0IOw34O CBNCKBAAHBCAABAAyhotzJOqT18rpERrTqKNJP-NHpU2QVv7
+
+------------------------------------------------------------------------------------------------------------
+
+consent_uri_adobe.rb
+
+Script to return the consent uri for adobesign setup.
+Directory: api
+Params: 
+	Base URI - This is the URI endpoint location, https://secure.<base_uri>.adobesign.net. This will usually be na1, na2 or na3.
+	client_id - This is the client_id for the API Application
+Ex.
+	$ ./run_local.sh master api consent_uri_adobe.rb na3 CBJCHBCAABAA7STPKahkmRhOX5Vz28EZPCR-RCjC2GDA
+
+------------------------------------------------------------------------------------------------------------
+
+consent_uri_ds.rb
+
+Script to return the consent uri for docusign setup.
+Directory: api
+Params: 
+	account type - either development or production.
+	integration key - This is the integration key for the application
+Ex.
+	$ ./run_local.sh master api consent_uri_ds.rb development f72a94ab-8ed2-4950-9099-c4a639ebafa6
+
+------------------------------------------------------------------------------------------------------------
